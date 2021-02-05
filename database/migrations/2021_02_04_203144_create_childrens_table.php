@@ -15,6 +15,16 @@ class CreateChildrensTable extends Migration
     {
         Schema::create('childrens', function (Blueprint $table) {
             $table->id();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('token');
+            $table->integer('old');
+            $table->foreignId('user_id')->constrained()->deleteOncascade();
+            $table->string('photo')->nullable();
+            $table->string('cursus')->nullable();
+            $table->string('description');
+            $table->foreignId('organisation_id')->constrained()->onDeleteCascade();
+
             $table->timestamps();
         });
     }
