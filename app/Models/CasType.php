@@ -13,6 +13,6 @@ class CasType extends Model
 
     public function cas()
     {
-    	return $this->hasMany('App\Models\Cas');
+    	return $this->hasMany('App\Models\Cas','cas_types_id');
     }
 }

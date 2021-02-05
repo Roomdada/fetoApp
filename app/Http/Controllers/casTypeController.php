@@ -14,7 +14,7 @@ class casTypeController extends Controller
      */
     public function index()
     {
-         return casTypeResource::collection(CasType::orderByDesc('created_at')->get());
+         return casTypeResource::collection(CasType::orderByDesc('created_at')->with('cas')->get());
 
     }
 
