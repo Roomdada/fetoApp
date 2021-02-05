@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\casController;
+use App\Http\Controllers\casTypeController;
+use App\Http\Controllers\childrenController;
+use App\Http\Controllers\structureController;
+use App\Http\Controllers\typeController;
+use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+
+Route::apiResource('/users',userController::class);
+Route::apiResource('/cas',casController::class);
+Route::apiResource('/children',childrenController::class);
+Route::apiResource('/type-structure',typeController::class);
+Route::apiResource('/organisation',structureController::class);
+Route::apiResource('/castype',casTypeController::class);
